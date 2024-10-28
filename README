@@ -1,0 +1,19 @@
+Hello, this is a guide on using x64 Amazon Linux as an Assembly coding workspace. Enjoy!
+
+Steps:
+* Install necessary dependencies *
+sudo yum install gcc
+sudo yum install gdb
+sudo yum install nasm -y
+
+* Create working directories *
+mkdir assembly && cd assembly
+mkdir hello-world && cd hello-world
+touch hello.asm
+
+* Assemble the program *
+nasm -f elf64 hello.asm -o hello.o
+ld -o hello hello.o
+
+* Run the program *
+./hello
