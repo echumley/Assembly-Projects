@@ -1,12 +1,11 @@
-My small repository of assembly porograms written or modified for class assignments, because why else would I be writing in Assembly?
+My small repository of assembly programs written or modified for class assignments, because why else would I be writing in Assembly?
 
-Guide on using x64 Amazon Linux as an Assembly coding workspace. Enjoy!
+Guide on using x64 Ubuntu Server as an Assembly coding workspace. Enjoy!
 
 Steps:
 * Install necessary dependencies *
-sudo yum install gcc
-sudo yum install gdb
-sudo yum install nasm -y
+sudo apt update && sudo apt upgrade -y
+sudo apt install gcc gcc-multilib gdb nasm -y
 
 * Create working directories *
 mkdir assembly && cd assembly
@@ -14,8 +13,8 @@ mkdir hello-world && cd hello-world
 touch hello.asm
 
 * Assemble the program *
-nasm -f elf64 hello.asm -o hello.o
-ld -o hello hello.o
+nasm -f elf32 hello.asm -o hello.o
+gcc -m32 -no-pie -o hello hello.o -nostartfiles
 
 * Run the program *
 ./hello
